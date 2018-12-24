@@ -8,6 +8,10 @@
     qs("#add-item").addEventListener("click", add_item);
   }
 
+  /**
+   * add a new item to the top of the list area. DOM objects to be added include a container. a
+   * check button, and a text area.
+   */
   function add_item() {
     let container = qs(".do-list");
     push_item_down();
@@ -15,10 +19,7 @@
     let check = new_check_button(1);
     let input = new_input();
     check.addEventListener("click", function() {
-      check.classList.add("clicked");
-      setTimeout(function() {
-        remove_item(check);
-      }, 200);
+      remove_item(check);
       setTimeout(function() {
         check.parentNode.remove();
       }, 300);
@@ -29,16 +30,23 @@
     ID += 1;
   }
 
+  /**
+   * Shift all the list item down by one to give space for a new item.
+   */
   function push_item_down() {
     let items = qsa(".list-item");
     for (let i = 0; i < items.length; i++) {
       let oldPos = items[i].classList[1];
-      let newPos = parseInt(oldPos.split("-")[1]) + 1;
+      let newPos = get_pos(items[i]) + 1;
       items[i].classList.remove(oldPos);
       items[i].classList.add("item-" + newPos);
     }
   }
 
+  /**
+   * remove an item from the list body with animation
+   * @param {object} node - the DOM button where the corresponding item is to be removed
+   */
   function remove_item(node) {
     let item = node.parentNode;
     node.classList.add("removing");
@@ -47,6 +55,10 @@
     pull_item_up(current);
   }
 
+  /**
+   * Shift all the items below the current item up by one to make up for its departure
+   * @param {int} current - the position of the item to be removed
+   */
   function pull_item_up(current) {
     let items = qsa(".list-item");
     for (let i = 0; i < items.length; i++) {
@@ -60,10 +72,20 @@
 
   // ----------------- helper functions ---------------
 
+  /**
+   * return the position of the item in the list
+   * @param {object} node - the DOM button of interest
+   * @return {int} - the position
+   */
   function get_pos(node) {
     return parseInt(node.classList[1].split("-")[1]);
   }
 
+  /**
+   * return a new item container
+   * @param {int} pos - the position of the new item
+   * @return {object} - a DOM div that has correct class and itemID
+   */
   function new_item(pos) {
     let item = document.createElement("div");
     item.classList.add("list-item");
@@ -72,6 +94,10 @@
     return item;
   }
 
+  /**
+   * return a new input text element
+   * @return {object} - a DOM input that has correct class and type
+   */
   function new_input() {
     let input = document.createElement("input");
     input.type = "text";
@@ -79,6 +105,11 @@
     return input;
   }
 
+  /**
+   * return a new check button
+   * @param {int} pos - the position of the new button
+   * @return {object} - a DOM div that has correct class and checkID
+   */
   function new_check_button(pos) {
     let item = document.createElement("div");
     item.classList.add("check-item");
@@ -86,10 +117,20 @@
     return item;
   }
 
+  /**
+   * return a DOM result of the query
+   * @param {string} query - a CSS statement
+   * @return {object} - a DOM result of the query
+   */
   function qs(query) {
     return document.querySelector(query);
   }
 
+  /**
+   * return all DOM results of the query
+   * @param {string} query - a CSS statement
+   * @return {object} - an array of DOM results of the query
+   */
   function qsa(query) {
     return document.querySelectorAll(query);
   }
