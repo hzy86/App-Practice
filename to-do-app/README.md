@@ -9,5 +9,4 @@ Designed the UI using Adobe XD. Added cool animations using JS.
 Gradients are from UIGradients.com
 
 ## Demo
-![ui](https://github.com/hzy86/App-Practice/blob/master/to-do-app/my%20to-do%20app.png)
 ![App with input](https://github.com/hzy86/App-Practice/blob/master/to-do-app/app-with-content.png)
