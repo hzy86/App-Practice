@@ -1,0 +1,104 @@
+:root {
+  --left-bg-color: rgb(43, 43, 43);
+  --right-bg-color: #c9af98;
+  --hover-width: 75%;
+  --other-width: 25%;
+  --speed: 1000ms;
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  font-family: monospace;
+}
+
+button {
+  position: absolute;
+  border: white solid 0.2em;
+  border-radius: 40px;
+  background-color: transparent;
+  padding: 10px;
+  color: white;
+  opacity: 0.8;
+  left: 50%;
+  top: 10%;
+  font-size: 1.75em;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  transition: 500ms all ease-out;
+}
+
+button:hover {
+  background-color: #BDBDBD;
+  cursor: pointer;
+}
+
+.split {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  transition: var(--speed) all ease-in-out;
+}
+
+.split.left {
+  left: 0;
+  background: url("imgs/abstract-art-bright-942313.jpg") center center no-repeat;
+  background-size: cover;
+}
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.split.left .overlay {
+  background: var(--left-bg-color);
+  opacity: 0.6;
+}
+
+.split.right .overlay {
+  background: var(--right-bg-color);
+  opacity: 0.6;
+}
+
+.split.right {
+  right: 0;
+  background: url("imgs/alone-anime-art-262272.jpg") center center no-repeat;
+  background-size: cover;
+}
+
+.hidden {
+  display: none;
+}
+
+.hover-left .split.left {
+  width: var(--hover-width);
+}
+
+.hover-left .split.right {
+  width: var(--other-width);
+}
+
+.hover-right .split.right {
+  width: var(--hover-width);
+}
+
+.hover-right .split.left {
+  width: var(--other-width);
+}
+
+@media (max-width: 800px) {
+  button {
+    font-size: 1.25em;
+    border: solid 0.1em;
+  }
+}
+
+@media (max-height: 500px) {
+  button {
+    top: 20%;
+  }
+}
