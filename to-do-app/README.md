@@ -4,6 +4,14 @@ A web app that allows you to add an to-do item by clicking the orange button and
 
 Designed the UI using Adobe XD. Added cool animations using JS.
 
+## index.html index.css index.js
+
+The main product of this project
+
+## Simple-xxx
+
+An experimental to-do app before I dove into UI design. It has a simple UI but all necessary functionalities.
+
 ## Credits:
 
 Gradients are from UIGradients.com
