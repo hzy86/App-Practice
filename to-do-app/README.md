@@ -6,7 +6,7 @@ Designed the UI using Adobe XD. Added cool animations using JS.
 
 ## index.html index.css index.js
 
-The main product of this project
+The main products of this project
 
 ## Simple-xxx
 
