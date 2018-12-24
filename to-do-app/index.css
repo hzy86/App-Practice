@@ -51,6 +51,10 @@ button {
   transform: translate(161px, 740px);
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 /* --------------- style the header ---------------*/
 .header {
   position: absolute;
@@ -83,11 +87,6 @@ p {
 }
 
 .item-1{
-  display: block;
-  transform: translate(var(--item-x-offset), 142px);
-}
-
-.item-100{
   display: block;
   transform: translate(var(--item-x-offset), 142px);
 }
@@ -131,10 +130,16 @@ p {
   background-color: var(--button-color);
 }
 
+.check-item:hover {
+  cursor: pointer;
+  background-color: var(--button-color);
+}
+
 .removing {
   height: 0;
 }
 
+/* style the text area*/
 .list-content {
   height: 32px;
   width: 196px;
