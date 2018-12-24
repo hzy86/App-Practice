@@ -2,70 +2,88 @@
   "use strict";
 
   window.addEventListener("load", initialize);
-  let TOTAL = 2;
+  let ID = 1;
 
   function initialize() {
-    let addItem = qs("#add-item");
-    addItem.addEventListener("mouseenter", prompt);
-    qs(".pop-up").addEventListener("mouseenter", prompt);
-    addItem.addEventListener("mouseleave", hide_prompt);
-    qs(".pop-up").addEventListener("mouseleave", hide_prompt);
-    qs("input[type=checkbox]").addEventListener("change", remove_item);
-    qs("#reset-list").addEventListener("click", reset_list);
-    window.addEventListener("keypress", submit_item);
+    qs("#add-item").addEventListener("click", add_item);
   }
 
-  function reset_list() {
-    let list = qs("#item-list");
-    while (list.firstChild) {
-      list.firstChild.remove();
-    }
-    TOTAL = 1;
+  function add_item() {
+    let container = qs(".do-list");
+    push_item_down();
+    let item = new_item(1);
+    let check = new_check_button(1);
+    let input = new_input();
+    check.addEventListener("click", function() {
+      check.classList.add("clicked");
+      setTimeout(function() {
+        remove_item(check);
+      }, 200);
+      setTimeout(function() {
+        check.parentNode.remove();
+      }, 300);
+    });
+    container.appendChild(item);
+    item.appendChild(check);
+    item.appendChild(input);
+    ID += 1;
   }
 
-  function prompt() {
-    qs(".pop-up").classList.toggle("hidden", false);
-    qs("#input-item").focus();
-  }
-
-  function hide_prompt() {
-    qs(".pop-up").classList.toggle("hidden", true);
-  }
-
-  function submit_item(e) {
-    let keyPressed = e.keyCode;
-    let popUp = qs(".pop-up");
-    if (keyPressed == 13 && !popUp.classList.contains("hidden")) {
-      let item = qs("#input-item").value;
-      qs("#input-item").value = "";
-      add_item(item);
-
+  function push_item_down() {
+    let items = qsa(".list-item");
+    for (let i = 0; i < items.length; i++) {
+      let oldPos = items[i].classList[1];
+      let newPos = parseInt(oldPos.split("-")[1]) + 1;
+      items[i].classList.remove(oldPos);
+      items[i].classList.add("item-" + newPos);
     }
   }
 
-  function add_item(content) {
-    let list = qs("#item-list");
-    let id = TOTAL.toString();
-    let newItem = document.createElement("li");
-    newItem.id = id;
-    let newLabel = document.createElement("label");
-    let text = document.createTextNode(content);
-    newLabel.htmlfor = id;
-    let newCheckbox = document.createElement("input");
-    newCheckbox.type = "checkbox";
-    newCheckbox.name = id;
-    newCheckbox.id = id;
-    newItem.appendChild(newLabel);
-    newItem.appendChild(newCheckbox);
-    newItem.appendChild(text);
-    TOTAL += 1;
-    list.appendChild(newItem);
-    newCheckbox.addEventListener("change", remove_item);
+  function remove_item(node) {
+    let item = node.parentNode;
+    node.classList.add("removing");
+    item.classList.add("removing");
+    let current = get_pos(item);
+    pull_item_up(current);
   }
 
-  function remove_item() {
-    TOTAL -= 1;
-    this.parentNode.remove();
+  function pull_item_up(current) {
+    let items = qsa(".list-item");
+    for (let i = 0; i < items.length; i++) {
+      let pos = get_pos(items[i]);
+      if (pos > current) {
+        items[i].classList.remove("item-" + pos);
+        items[i].classList.add("item-" + --pos);
+      }
+    }
+  }
+
+  // ----------------- helper functions ---------------
+
+  function get_pos(node) {
+    return parseInt(node.classList[1].split("-")[1]);
+  }
+
+  function new_item(pos) {
+    let item = document.createElement("div");
+    item.classList.add("list-item");
+    item.classList.add("item-" + pos);
+    item.id = "itemID-" + ID;
+    return item;
+  }
+
+  function new_input() {
+    let input = document.createElement("input");
+    input.type = "text";
+    input.classList.add("list-content");
+    return input;
+  }
+
+  function new_check_button(pos) {
+    let item = document.createElement("div");
+    item.classList.add("check-item");
+    item.id = "checkID-" + ID;
+    return item;
   }
 
   function qs(query) {
