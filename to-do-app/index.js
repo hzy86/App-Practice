@@ -1,3 +1,9 @@
+/**
+ * @author: Ziyi Huang
+ * @daate:  12/24/2018
+ * This is the JS to implement the UI and behaviors for my to-do list app.
+ * Adds/removes items in a to-do list.
+ */
 (function() {
   "use strict";
 

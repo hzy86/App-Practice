@@ -3,7 +3,6 @@
   --canvas-radius: 22px;
   --item-radius: 37px;
   --check-button-radius: 33px;
-  --shawdow-color: rgba(0, 0, 0, 0.36);
   --item-border-color: #E7DDDD;
   --check-x-offset: 244px;
   --check-y-offset: 18px;
@@ -11,6 +10,7 @@
   --input-y-offset: 21px;
   --item-x-offset: 36px;
   --button-color: #FFCC80;
+  --shadow: 0px 1px 5px rgba(12, 1, 1, 0.20);
 }
 
 * {
@@ -19,6 +19,8 @@
   padding: 0;
   margin: 0;
   outline: none;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 body {
@@ -31,7 +33,7 @@ body {
   position: absolute;
   width: 375px;
   height: 812px;
-  background-color: white;
+  background-color: #FAFAFA;
   left: 50%;
   top: 5%;
   transform: translateX(-50%);
@@ -45,10 +47,10 @@ button {
   border: none;
   background-color: var(--button-color);
   border-radius: var(--button-radius);
-  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.36);
   width: 53px;
   height: 48px;
-  transform: translate(161px, 740px);
+  left: 43%;
+  top: 92%;
 }
 
 button:hover {
@@ -58,17 +60,16 @@ button:hover {
 /* --------------- style the header ---------------*/
 .header {
   position: absolute;
-  width: 375px;
-  height: 121px;
+  height: 15%;
   transform: translate(0px, 0px);
-  background-image: linear-gradient(#FFFCFC, #F3F3F3);
+  background-image: linear-gradient(#FFFCFC, #FAFAFA);
   border-radius: var(--canvas-radius) var(--canvas-radius) 0 0;
 }
 
-p {
+#list-prompt {
   position: absolute;
-  width: 229px;
-  height: 28px;
+  width: 71%;
+  height: 25%;
   transform: translate(73px, 47px);
 }
 
@@ -77,42 +78,48 @@ p {
 /* style the containers */
 .list-item {
   position: absolute;
-  width: 303px;
-  height: 75px;
+  width: 90%;
+  height: 9.2%;
+  left: 5%;
+  background-color: white;
   border-radius: var(--item-radius);
-  border-color: var(--item-border-color);
-  box-shadow: 0px 5px 10px rgba(12, 1, 1, 0.16);
+  box-shadow: var(--shadow);
   display: none;
   transition: all 300ms ease-in-out;
 }
 
 .item-1{
   display: block;
-  transform: translate(var(--item-x-offset), 142px);
+  transform: translateY(129px);
 }
 
 .item-2{
   display: block;
-  transform: translate(var(--item-x-offset), 242px);
+  transform: translateY(215px);
 }
 .item-3{
   display: block;
-  transform: translate(var(--item-x-offset), 342px);
+  transform: translateY(301px);
 }
 .item-4{
   display: block;
-  transform: translate(var(--item-x-offset), 442px);
-  opacity: 0.6;
+  transform: translateY(387px);
+  opacity: 0.7;
 }
 .item-5{
   display: block;
-  transform: translate(var(--item-x-offset), 542px);
+  transform: translateY(473px);
   opacity: 0.5;
 }
 .item-6{
   display: block;
-  transform: translate(var(--item-x-offset), 642px);
-  opacity: 0.4;
+  transform: translateY(559px);
+  opacity: 0.5;
+}
+.item-7{
+  display: block;
+  transform: translateY(645px);
+  opacity: 0.5;
 }
 
 /* style the check buttons */
@@ -120,9 +127,11 @@ p {
   position: absolute;
   width: 39px;
   height: 39px;
+  background-color: white;
+  box-shadow: var(--shadow);
   border-radius: var(--check-button-radius);
-  box-shadow: 0px 3px 6px rgba(12, 1, 1, 0.16);
-  transform: translate(var(--check-x-offset), var(--check-y-offset));
+  left: 84.2%;
+  top: 23%;
   transition: all 300ms ease-in;
 }
 
@@ -144,6 +153,3 @@ p {
   position: absolute;
   transform: translate(var(--input-x-offset), var(--input-y-offset));
 }
-
-/* ----------------- media query ------------*/
-@media (max-width: )
