@@ -16,5 +16,5 @@ An experimental to-do app before I dove into UI design. It has a simple UI but a
 
 Gradients are from UIGradients.com
 
-## Demo
+## UI Demo
 ![App with input](https://github.com/hzy86/App-Practice/blob/master/to-do-app/app-with-content.png)
