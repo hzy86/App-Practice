@@ -8,5 +8,100 @@
     <script src="js/index.js"></script>
   </head>
   <body>
+    <header>
+      <nav>
+        <div class="desktop">
+          <ul>
+            <li><a href="#">home</a></li>
+            <li><a href="#">explore</a></li>
+            <li><a href="#">categories</a></li>
+            <li>
+              <label for="search-bar">
+                <input id="search-bar" type="text" placeholder="search for a game..."/>
+              </label>
+              <img src="imgs/search.svg" alt="search icon" id="search-icon">
+            </li>
+          </ul>
+        </div>
+        <div class="mobile">
+          <label for="mobile-menu">
+            <img src="imgs/menu.svg" alt="mobile menu icon" id="menu-icon">
+          </label>
+          <input type="checkbox" id="mobile-menu">
+          <ul>
+            <li><a href="#">home</a></li>
+            <li><a href="#">explore</a></li>
+            <li><a href="#">categories</a></li>
+            <li>
+              <label for="search-bar">
+                <input id="search-bar" type="text" placeholder="search for a game..."/>
+              </label>
+              <img src="imgs/search.svg" alt="search icon" id="search-icon">
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <div id="preview-img"></div>
+    <div class="left-text">
+      <div class="game-title">
+        <h1 id="game-name">Final Fantasy XV</h1>
+        <div id="rating">Rating: <span id="rating-num">9.5</span></div>
+      </div>
+      <div class="left-separator"></div>
+      <div class="tags">
+        <ul>
+          <li>RPG</li>
+          <li>Adventure</li>
+          <li>Single-Player</li>
+        </ul>
+      </div>
+      <p class="storyline">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam finibus libero elit, quis pretium est varius ac.
+        Mauris vitae arcu leo. Cras vehicula arcu risus, et convallis
+        urna luctus id. Nunc a rutrum odio. Aenean vel leo in
+        augue lobortis mollis. Nullam faucibus enim lacinia
+        malesuada pharetra.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Nam finibus libero elit, quis pretium est varius ac.
+        Mauris vitae arcu leo. Cras vehicula arcu risus, et convallis
+        urna luctus id. Nunc a rutrum odio. Aenean vel leo in
+        augue lobortis mollis. Nullam faucibus enim lacinia
+        malesuada pharetra.
+      </p>
+    </div>
+    <button id="left-button">Buy</button>
+    <div class="card-container">
+      <div class="games-display" id="most-popular">
+        <h2>Most Popular</h2>
+        <ul>
+          <li><img class="card" src="imgs/red.jpg" alt="game card"></li>
+          <li><img class="card" src="imgs/helmet.jpg" alt="game card"></li>
+          <li><img class="card" src="imgs/final.jpeg" alt="game card"></li>
+          <li><img class="card" src="imgs/dead.jpg" alt="game card"></li>
+          <li><img class="card" src="imgs/asphalt.jpg" alt="game card"></li>
+        </ul>
+      </div>
+      <div class="games-display" id="highest-rated">
+        <h2>Highest Rated</h2>
+        <ul>
+          <li><img class="card" src="imgs/red.jpg" alt="game card"></li>
+          <li><img class="card" src="imgs/helmet.jpg" alt="game card"></li>
+          <li><img class="card" src="imgs/final.jpeg" alt="game card"></li>
+          <li><img class="card" src="imgs/dead.jpg" alt="game card"></li>
+          <li><img class="card" src="imgs/asphalt.jpg" alt="game card"></li>
+        </ul>
+      </div>
+      <!-- <div class="games-display" id="upcoming">
+        <h2>Upcoming</h2>
+        <ul>
+          <li><img class="card" src="imgs/red.jpg" alt="game card"></li>
+          <li><img class="card" src="imgs/helmet.jpg" alt="game card"></li>
+          <li><img class="card" src="imgs/final.jpeg" alt="game card"></li>
+          <li><img class="card" src="imgs/dead.jpg" alt="game card"></li>
+          <li><img class="card" src="imgs/asphalt.jpg" alt="game card"></li>
+        </ul>
+      </div> -->
+    </div>
   </body>
 </html>
